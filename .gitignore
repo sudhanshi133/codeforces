@@ -1,2 +1,8 @@
-*.bin
-.DS_Store
+# Ignore everything
+*
+
+# But allow .cpp files
+!*.cpp
+
+# And allow .gitignore itself
+!.gitignore
