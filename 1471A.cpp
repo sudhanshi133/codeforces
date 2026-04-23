@@ -3,19 +3,19 @@
 using namespace std;
 
 void solve() {
-    int n; cin >> n;
-    int x; cin >> x;
-    vector<int> vec(n);
+    long long n; cin >> n;
+    long long x; cin >> x;
+    vector<long long> vec(n);
 
-    for(int i=0; i<n; i++){
+    for(long long i=0; i<n; i++){
         cin >> vec[i];
     }
 
-    int mini = 0;
-    int maxi = 0;
-    int sum=0;
+    long long mini = 0;
+    long long maxi = 0;
+    long long sum=0;
 
-    for(int i=0; i<n; i++){
+    for(long long i=0; i<n; i++){
         maxi+=(vec[i]/x);
         if(vec[i]%x!=0) maxi++;
         if(vec[i]%x==0) mini+=(vec[i]/x);
