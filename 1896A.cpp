@@ -10,15 +10,8 @@ for(auto &ele : vec){
 cin>>ele;
 }
 
-bool flag = true;
-
-
-if(flag){
-cout << "YES"<< endl;
-}
-else{
-cout << "NO" << endl;
-}
+if(vec[0] == 1) cout << "YES"<< endl;
+else cout << "NO" << endl;
 }
 
 int main() {
