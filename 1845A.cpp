@@ -3,9 +3,19 @@
 #include<algorithm>
 using namespace std;
 
+// if i have numbers from 2 to k
 void func(int n, int k, int x){
-   cout <<"in func" ;
-   cout << endl;
+    if(k == 1 || (k==2 && n%2!=0)){
+        cout << "NO" << endl;
+        return;
+    }
+    cout << "YES" << endl;
+    cout << n/2 << endl;
+    for(int i=0; i<n/2-1; i++){
+        cout << 2 << " ";
+    }  
+   if(n%2 == 0) cout << 2 << endl;
+   else cout << 3 << endl; 
 }
 
 void solve() {
