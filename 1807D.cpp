@@ -53,3 +53,6 @@ int main() {
 int t; cin >> t;
 while (t--) solve();
 }
+
+// if any ques asks for prefix sum , use an array instead of calculating 
+//it everytime
