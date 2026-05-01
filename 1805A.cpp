@@ -11,6 +11,9 @@ void solve() {
         cin >> ele;
     }
     
+    int ans = 0;
+
+    cout << ans << " ";
     return;
 }
 
