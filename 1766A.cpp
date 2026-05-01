@@ -3,29 +3,23 @@ using namespace std;
 
 void solve() {
 int n; cin >> n;
+int ans = 0;
+int count = 0;
 
-int sum = 9;
-if(n <= 19){
-    (n > 9) ? cout << sum + 1 : cout << sum;
-    cout << endl;
-    return ; 
+if(n<10){
+    cout << n << endl;
+    return;
 }
 
-int k = 0 ;
-int b = 0 ;
-if(n < 100){
-   b = n/10 ;
-}
-while(n > 9){
-    n = n/10;
-    k++;
+while(n>9){
+    count ++;
+    ans+=10;
+    n/=10;
 }
 
-int ans = (k-1)*10 + 9  - (k-1) + b;
+ans+=n;
+ans = ans - count;
 
-if(n == 1){
-    ans +=1 ;
-}
 cout << ans << endl;
 }
 
