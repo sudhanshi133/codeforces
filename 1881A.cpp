@@ -10,7 +10,7 @@ int ans=0;
 int count=6;
 
 while(count--){
-    if(x.find(s) != npos){
+    if(x.find(s) != string::npos){
         flag = true;
         break;
     }
