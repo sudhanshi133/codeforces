@@ -11,9 +11,27 @@ void solve() {
         cin >> ele;
     }
     
-    int ans = 0;
+    int ans = -1;
+    int result = vec[0];
 
-    cout << ans << " ";
+    for(int i=1; i<n; i++){
+        result ^= vec[i];
+    }
+
+    if(result == 0){
+        cout << 0 << endl;
+        return;
+    } 
+
+    int b = vec[0]^result;
+
+    for(int i=1; i<n; i++){
+        vec[i] = vec[i] ^ result;
+        b ^= vec[i];
+    }
+
+    if(b==0) ans = result;
+    cout << ans << endl;
     return;
 }
 
