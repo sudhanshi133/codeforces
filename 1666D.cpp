@@ -1,36 +1,40 @@
 #include <iostream>
+#include<vector>
 using namespace std;
 
+bool func(string a, string b, vector<int>& vec, vector<int>& vec1){
+int i=0, j=0;
+while(i<a.length() && j<b.length()){
+    if(a[i] == b[j]){
+        if(vec[a[i] - 'A'] == vec1[a[i] - 'A']){
+            vec1[a[i]- 'A']--;
+            j++;
+        }
+        else if(vec[a[i] - 'A'] < vec1[a[i] - 'A']) return false;
+    }
+    vec[a[i] - 'A']--;
+    i++;
+}
+ return j == b.length();
+}
+
+void func1(string x, vector<int>& vec){
+    for(int i=0; i<x.length(); i++){
+        vec[x[i] - 'A']++;
+    }
+}
+
 void solve() {
-    string str1, str2;
-    cin >> str1 >> str2;
+    string s, x;
+    cin >> s >> x;
 
-    if(str2.length() > str1.length()){
-        cout << "NO" << endl;
-    }
+    vector<int> vec(26, 0);
+    vector<int> vec1(26, 0);
+    func1(s, vec);
+    func1(x, vec1);
 
-    vector<int> vec(26);
-    for(int i = 0 ; i < str1.length(); i++){
-        int k = str1[i]-'a';
-         vec[k] = i;
-    }
-
-    bool flag = true;
-    int a = -1;
-
-   for(int i = 0 ; i <str2.length() ; i++){
-       int m = str2[i]-'a';
-       if(a > vec [m] ){
-         flag = false;
-         break;
-       }
-       else if(vec[m] == -1){
-        flag = false;
-        break;
-   }
-       a = vec[m];
-    }
-    flag ? cout << "YES" << endl : cout << "NO" << endl; 
+   if(func(s, x, vec, vec1)) cout << "YES\n";
+   else cout << "NO\n";
 }
 
 int main() {
