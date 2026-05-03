@@ -12,32 +12,14 @@ void solve() {
     for(auto &ele : vec){
         cin >> ele;
     }
-    sort(vec.begin(), vec.end());
+    long long sum = b-1;
 
-    int timer = 0;
-    int curr = b ;
-    int i = 0;
-
-    while(i < n-1){
-        if(curr == 1){
-            timer += min(curr + vec[i] -1 , a);
-            curr = min(curr + vec[i] , a);
-            i++;
-        }
-       else if(curr + vec[i] >= a){
-         timer += (curr -1);
-       }
-       else{
-        curr = curr + vec[i];
-        timer ++;
-        i++;
-       }
-       curr--;
+    for(int i=0; i<n; i++){
+        sum += min(a, vec[i] + 1);
     }
-        timer += curr - 1;
-        timer += min(vec[n-1] + 1, a);
 
-    cout << timer << endl;
+    cout << sum - (n-1) << endl;
+    return;
 }
 
 int main() {
