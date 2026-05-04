@@ -3,38 +3,33 @@
 #include<algorithm>
 using namespace std;
 
-bool func(long long a, long long b){
-    long long smaller = min(a, b);
-    long long larger = max(a, b);
-    if (smaller == 0) {
-        if (larger == 0) return true;
-        else  return false;
-    }
 
-    if (larger % smaller == 0)   return true;
-    return false;
+bool func1(long long a, long long b, long long c){
+long long diff = (c+a)/2;
+if(b-a == c-b){
+return true;
 }
+else {
+    if((c+a) % 2 == 0 && diff % b == 0) return true;
+}
+return false;
+}
+
+bool func2(long long a, long long b, long long c){
+   long long newC = 2*b - a;
+   long long newA = 2*b - c;
+   if(c<=newC && newC % c == 0) return true;
+   else if(b<=newA && newA % a == 0) return true; 
+return false;
+}
+
+
 
 void solve() {
     long long a, b, c;
     cin >> a >> b >> c;
-    long long diff1 = abs(b-a);
-    long long diff2 = abs(c-b);
-
-    if(diff2 == diff1){
-        cout << "YES\n";
-        return;
-    }
-    else if(func(diff1, diff2) || (a==1 && b>c)){
-        cout << "YES\n";
-        return;
-    }
-    else if(a==b || b==c){
-        if((a==b && c!=1 && c!=3) || (b==c && a!=1)) cout << "NO\n";
-        else cout << "YES\n";
-        return;
-    }
-   cout << "NO\n";
+    if(func1(a,b,c) || func2(a,b,c))  cout << "YES\n";
+    else cout << "NO\n";
     return;
 }
 
