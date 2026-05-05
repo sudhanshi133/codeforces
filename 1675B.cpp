@@ -19,15 +19,9 @@ void solve() {
 
     int o = 0;
 
-    for(int i=1; i<=n-1; i++){
-        if(vec[i] == 0){
-            cout << -1 << endl;
-            return;
-        }
-    }
-
     for (int i = n - 1; i > 0; i--) {
         while (vec[i - 1] >= vec[i]) {
+            // this is the case if both elements are 0
             if (vec[i - 1] == 0) {
                 cout << -1 << endl;
                 return;
