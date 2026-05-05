@@ -19,7 +19,7 @@ bool func2(long long a, long long b, long long c){
    long long newC = 2*b - a;
    long long newA = 2*b - c;
    if(c<=newC && newC % c == 0) return true;
-   else if(b<=newA && newA % a == 0) return true; 
+   else if(a<=newA && newA % a == 0) return true; 
 return false;
 }
 
