@@ -15,7 +15,7 @@ void solve() {
 
     for(int i=1; i<n; i++){
         if(vec[i] == 1) vec[i]+=1;
-        if(vec[i] % vec[i-1] == 0){
+        while(vec[i] % vec[i-1] == 0){
             vec[i]++;
         }
     }
