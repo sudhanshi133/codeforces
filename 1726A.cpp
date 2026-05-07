@@ -6,20 +6,23 @@ using namespace std;
 void solve() {
     int n; cin >> n;
     vector<int> vec(n);
-    int maxi = 0;
 
     for(auto &ele : vec){
         cin >> ele;
     }
 
+    int maxi = 0;
+
     for(int i=1; i<n; i++){
-        int diff = vec[i] - vec[0];
-        if(diff > maxi) maxi = diff;
+        maxi = max(maxi, vec[i] - vec[0]);
     }
 
-    for(int i=n-2; i>=0; i--){
-        int diff = abs(vec[n-1] - vec[i]);
-        if(diff > maxi) maxi = diff;
+    for(int i=0; i<n-1; i++){
+        maxi = max(maxi, vec[n-1] - vec[i]);
+    }
+
+    for(int i=0; i<n-1; i++){
+        maxi = max(maxi, vec[i] - vec[i+1]);
     }
 
     cout << maxi << endl;
