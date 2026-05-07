@@ -4,13 +4,9 @@
 using namespace std;
 
 void solve() {
-    int n; cin >> n;
-    vector<int> vec(n);
-
-    for(auto &ele : vec){
-        cin >> ele;
-    }
-    
+    long long n; cin >> n;
+    int ans = 1;
+    cout << ans << endl;
     return;
 }
 
