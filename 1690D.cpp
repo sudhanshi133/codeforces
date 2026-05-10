@@ -3,46 +3,43 @@
 #include<algorithm>
 using namespace std;
 
-vector<int> func(string s, int x){
-    vector<int> ans;
-    for(int i=0; i<= s.length() - x; i++){
-        if(s[i] == 'B')  ans.push_back(i);
-    }
-    return ans;
-}
-
-int calc(int index, string s, int x){
-    int b = 0;
-    while(x--){
-        if(s[index] == 'W') b++;
-        index++;
-    }
-    return b;
-}
-
 void solve() {
     int n; cin >> n;
     int x; cin >> x;
     string s; cin >> s; 
 
-    vector<int> black = func(s, x);
-    int ans = INT_MAX;
-    int k = -1;
-    sort(black.begin(), black.end());
-    if(black.size() == 0){
-        cout << x << endl;
+    int black = 0;
+
+    for(int i=0; i<s.length(); i++){
+        if((x==1 && s[i] =='B') || x==0){
+            cout << 0 << endl;
+            return;
+        }
+    }
+
+    for(int i=0; i<x; i++){
+        if(s[i] == 'B') black++;
+    }
+    
+    if(black == x){
+        cout << 0 << endl;
         return;
     }
 
-    for(int i=0; i < black.size(); i++){
-        if(k+1 == black[i] && i!=0) continue;
-        int len = calc(i, s, x);
-        ans = min(ans, len);
-        k = black[i];
+    int i = 1;
+    int j = x;
+    int ans = x - black;
+
+    while(i<j && j<s.length()){
+        if(s[j] == 'B') black++;
+        if(s[i-1] == 'B') black--;
+        ans = min(x-black, ans);
+        i++;
+        j++;
     }
 
-   cout << ans;
-  cout << endl;
+    cout << ans;
+    cout << endl;
     return;
 }
 
