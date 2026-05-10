@@ -11,11 +11,14 @@ int func(vector<int>& ans, int index, vector<int> vec){
 
     int k = b - 1;
     if(b==1) return -1;
+    int i = index;
 
-    for(int i = index + b; i >= index + 1; i--){
-        ans.push_back(i);
+    while(k--){
+        ans.push_back(i + 2);
+        i++;
     }
-
+    
+    ans.push_back(index+1);   
     return b;
 }
 
@@ -26,6 +29,7 @@ void solve() {
     for(auto &ele : vec){
         cin >> ele;
     }
+    
 
     int index = 0;
     vector<int> ans;
