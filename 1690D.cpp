@@ -12,7 +12,12 @@ vector<int> func(string s, int x){
 }
 
 int calc(int index, string s, int x){
-    
+    int b = 0;
+    while(x--){
+        if(s[index] == 'W') b++;
+        index++;
+    }
+    return b;
 }
 
 void solve() {
@@ -24,6 +29,10 @@ void solve() {
     int ans = INT_MAX;
     int k = -1;
     sort(black.begin(), black.end());
+    if(black.size() == 0){
+        cout << x << endl;
+        return;
+    }
 
     for(int i=0; i < black.size(); i++){
         if(k+1 == black[i] && i!=0) continue;
