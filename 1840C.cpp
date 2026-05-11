@@ -3,38 +3,40 @@
 #include<algorithm>
 using namespace std;
 
-int func(int x){
-
+long long func(long long x, long long k){
+    if(k>x) return 0;
+    long long len = x - k + 1;
+    return (len * (len + 1)) / 2;
 }
 
 void solve() {
-    int n; cin >> n;
-    int k; cin >> k; 
-    int q; cin >> q;
-    vector<int> vec(n);
+    long long n; cin >> n;
+    long long k; cin >> k; 
+    long long q; cin >> q;
+    vector<long long> vec(n);
 
     for(auto &ele : vec){
         cin >> ele;
     }
 
-    int start = 0;
-    int end = 0;
-    int ans = 0;
-    int window = 0;
+    long long start = 0;
+    long long end = 0;
+   long long ans = 0;
+    long long window = 0;
 
     while(end < n){
-        if(vec[end] < q){
+        if(vec[end] <= q){
             window++;
         }
         else{
-            ans += func(window);
+            ans += func(window, k);
             window = 0;
             start = end + 1;
         }
         end++;
     }
 
-    if(window) ans+= func(window);
+    if(window) ans+= func(window, k);
     
     cout << ans << endl;
     return;
