@@ -5,18 +5,11 @@ using namespace std;
 
 void solve() {
     int n; cin >> n;
-    int p; cin >> p;
     vector<int> vec(n);
-    vector<int> arr(n);
 
     for(auto &ele : vec){
         cin >> ele;
     }
-
-    for(auto &ele : arr){
-        cin >> ele;
-    }
-
     
     return;
 }
