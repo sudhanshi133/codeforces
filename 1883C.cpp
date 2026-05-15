@@ -43,7 +43,7 @@ void solve() {
            }
            else {
             // i got here
-            least = min(2, 4 - (vec[i]%4));
+            least = min(least, min(4 - (vec[i]%4), 2));
            }
         }
     } 
