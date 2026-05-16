@@ -5,16 +5,11 @@ void solve() {
     long long n, x1, x2, k;
     cin >> n >> x1 >> x2 >> k;
 
-    long long diff = abs(x1 - x2);
-    long long a = diff;         
-    long long b = n - diff;       
+long long diff = abs(x1 - x2);
+long long a = min(diff, n - diff);
+long long b = max(diff, n - diff);
 
-if(a+k>=b){
-    cout<<b; 
-} else {
-    cout<<a+k;
-}
- 
+cout << min(a + k, b);
 cout << endl;
 }
 
