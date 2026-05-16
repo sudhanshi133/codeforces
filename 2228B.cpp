@@ -9,8 +9,13 @@ void solve() {
     long long a = diff;         
     long long b = n - diff;       
 
-    cout << min(a,b) + k;
-    cout << endl;
+if(a+k>=b){
+    cout<<b; 
+} else {
+    cout<<a+k;
+}
+ 
+cout << endl;
 }
 
 int main() {
