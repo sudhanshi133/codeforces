@@ -6,14 +6,14 @@ using namespace std;
 void solve() {
     int n; cin >> n;
     vector<int> vec(n);
-    vector<int> ans(n);
 
     for(auto &ele : vec){
         cin >> ele;
     }
+    sort(vec.begin(), vec.end());
     
-    for(auto &p : ans){
-        cout << p << " ";
+    for(int i=n-1; i>=0; i--){
+        cout << vec[i] << " ";
     }
 
     cout << endl;
