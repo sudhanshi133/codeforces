@@ -1,25 +1,16 @@
 #include <iostream>
 #include<vector>
 #include<algorithm>
-#include <queue>
 using namespace std;
 
 void solve() {
     int n; cin >> n;
-    int x; cin >> x;
     vector<int> vec(n);
-    vector<int> ans(n);
 
-    for(int i=0; i<n; i++){
-        cin >> vec[i];
+    for(auto &ele : vec){
+        cin >> ele;
     }
-
-
-    for(int i=0; i<n; i++){
-        cout << ans[i] << " ";
-    }
-
-    cout << endl;
+    
     return;
 }
 
