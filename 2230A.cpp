@@ -18,7 +18,8 @@ void solve() {
         int remainder = n%3;
         ans+= (n/3) * b;
         if(remainder == 1){
-            ans += a;
+            if(a > b) ans += b;
+            else ans += a;      
         }
         else if(remainder == 2) {
             if(a*2 > b) ans += b;
