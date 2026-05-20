@@ -5,7 +5,6 @@ using namespace std;
 
 void solve() {
     int n; cin >> n;
-    //vector<int> first;
     vector<int> second;
     int mini = INT_MAX;
 
@@ -15,7 +14,6 @@ void solve() {
         vector<int> vec(k);
         for(auto &ele : vec) cin >> ele;
         sort(vec.begin(), vec.end());
-       // first.push_back(vec[0]);
         mini = min(mini, vec[0]);
         second.push_back(vec[1]);
     }
@@ -23,7 +21,6 @@ void solve() {
     long long ans = 0;
     sort(second.begin(), second.end());
     ans += mini;
-    
     for(int i=1; i<second.size(); i++){
         ans += second[i];
     }
