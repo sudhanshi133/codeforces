@@ -24,6 +24,7 @@ void solve() {
 
     long long low = 1, high = 2e9, ans = 1;
 
+    sort(a.begin(), a.end());
     while (low <= high) {
         long long mid = low + (high - low) / 2;
 
