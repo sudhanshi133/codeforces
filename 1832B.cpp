@@ -5,46 +5,46 @@ using namespace std;
 
 void solve() {
     int n; cin >> n;
-    int k; cin >> k;
+    int x; cin >> x;
     vector<long long> vec(n);
+    long long sum = 0;
     long long totalSum = 0;
 
     for(auto &ele : vec){
         cin >> ele;
         totalSum += ele;
     }
-
+    
     sort(vec.begin(), vec.end());
 
-    long long removedSum = 0;
-    for(int i = 0; i < 2*k; i++){
-        removedSum += vec[i];
+    int i=0, m=x;
+
+   while(m>0){
+        sum += vec[i];
+        sum += vec[i+1];
+        i+=2;
+        m--;
     }
 
-    long long minRemoved = removedSum;  
+    long long maxsum = sum;
+    int j = n-1;
+    i = 2*x - 1;
+    
 
-
-
-    int left = 2*k - 1;  
-    int right = n - 1;   
-
-    for(int m = k-1; m >= 0; m--){
-        removedSum -= vec[left];
-        removedSum -= vec[left-1];
-        left -= 2;
-        removedSum += vec[right];
-        right--;
-
-        minRemoved = min(minRemoved, removedSum);
+    while(x){
+        sum -= (vec[i] + vec[i-1]);
+        sum += vec[j];
+        maxsum = min(sum, maxsum);
+        i-=2;
+        j--;
+        x--;
     }
 
-    cout << totalSum - minRemoved << "\n";
+    cout << totalSum - maxsum << endl;
     return;
 }
 
 int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
     int t; cin >> t;
     while (t--) solve();
 }
