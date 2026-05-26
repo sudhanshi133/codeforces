@@ -3,6 +3,12 @@
 #include<algorithm>
 using namespace std;
 
+void func(vector<int>& res, int k){
+    for(int i=0; i<51; i++){
+        if(res[i] < k) res[i] ++;
+    }
+}
+
 void solve() {
     int n, m; cin >> n >> m;
     vector<int> vec(n), queries(m);
@@ -18,14 +24,17 @@ void solve() {
 
     vector<int> ans(m);
     int k = 0;
+    int prev = -1;
 
     for(int i=0; i<m; i++){
        int b =  res[queries[i]];
-       if(b==1) ans[i] = b;
-       else ans[i] = b+k;
-       
-        if(b!=1) k++;
-        res[queries[i]] = 1;
+       ans[i] = b;
+
+       if(prev == queries[i]) ans[i] = 1;
+       else func(res, b);
+
+       res[queries[i]] = 1;
+       prev = queries[i];
     }
 
     for(int i=0; i<m; i++){
