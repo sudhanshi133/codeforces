@@ -17,23 +17,24 @@ set<int> s(vec.begin(), vec.end());
 vector<int> result(s.begin(), s.end());
 
 if(result.size() == 1){
-    if(x==0) cout << "YES";
-    else cout << "NO";
+    if(x==0) cout << "YES" << endl;
+    else cout << "NO" << endl;
+
     return;
 }
 
 long long sum = 0;
 int k = result.size();
 
-for(int i=0; i< k - 2; i++){
-    sum += result[i];
+for(int i=0; i<k-1; i++){
+    for(int j=i+1; j<k; j++){
+        if(result[j] - result[i] == x){
+            cout << "YES" << endl;
+            return;
+        }
+    }    
 }
-
-//cout << sum << endl;
-result[k-2] -= sum;
-
-if(result[k-1] - result[k-2] == x) cout << "YES" << endl;
-else cout << "NO" << endl;
+cout << "NO" << endl;
     return;
 }
 
