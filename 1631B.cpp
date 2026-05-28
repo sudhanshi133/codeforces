@@ -1,52 +1,32 @@
 #include <iostream>
-#include<vector>
-#include<algorithm>
+#include <vector>
 using namespace std;
 
-int func(vector<int>& vec, int n){
-    int maxLen = 1;
-    int currLen = 1;
-
-    for(int i = 1; i < n; i++){
-        if(vec[i] == vec[i-1]){
-            currLen++;
-            maxLen = max(maxLen, currLen);
-        }
-        else  currLen = 1;
-    }
-    return maxLen;
-}
-
-void solve() {
+void solve(){
     int n; cin >> n;
     vector<int> vec(n);
+    for(auto& ele : vec) cin >> ele;
 
-    for(auto &ele : vec){
-        cin >> ele;
-    }
-    
-    int maxi = func(vec, n);
+    int ops = 0;
+    int i = n-2;  // start from second last
 
-
-    if(maxi == n) {
-        cout << 0 << endl;
-        return;
-    }
-
-    int left = n - maxi;
-    int ans = 0;
-
-    while(left > 0){
-        left -= maxi;
-        maxi *= 2;
-        ans ++;
+    while(i >= 0){
+        if(vec[i] != vec[n-1]){
+            // need one operation of size k = (n-1-i)
+            // this covers k elements to the left
+            int k = (n-1) - i;
+            i -= k;   // jump back by k
+            ops++;
+        }
+        else i--;
     }
 
-   cout << ans << endl;
-    return;
+    cout << ops << "\n";
 }
 
-int main() {
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
     int t; cin >> t;
-    while (t--) solve();
+    while(t--) solve();
 }
