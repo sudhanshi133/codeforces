@@ -8,19 +8,15 @@ void solve(){
     for(auto& ele : vec) cin >> ele;
 
     int ops = 0;
-    int i = n-2;  // start from second last
-
+    int i = n-2; 
     while(i >= 0){
         if(vec[i] != vec[n-1]){
-            // need one operation of size k = (n-1-i)
-            // this covers k elements to the left
             int k = (n-1) - i;
-            i -= k;   // jump back by k
+            i -= k; 
             ops++;
         }
         else i--;
     }
-
     cout << ops << "\n";
 }
 
