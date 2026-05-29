@@ -21,7 +21,7 @@ void solve(){
                     * (n % MOD) % MOD
                     * inv2 % MOD;
 
-    // n*n
+                    
     long long last = (n % MOD) * (n % MOD) % MOD;
 
     long long ans = (sum_sq + sum_i + last) % MOD;
@@ -30,8 +30,6 @@ void solve(){
 }
 
 int main(){
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
     int t; cin >> t;
     while(t--) solve();
 }
