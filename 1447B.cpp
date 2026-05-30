@@ -11,8 +11,8 @@ void solve() {
         for(int j = 0; j < m; j++)
             cin >> arr[i][j];
 
-    int negCount = 0;   // count of negative numbers
-    int minAbs = INT_MAX; // smallest absolute value
+    int negCount = 0;   
+    int minAbs = INT_MAX; 
     long long sum = 0;
 
     for(int i = 0; i < n; i++){
@@ -22,8 +22,6 @@ void solve() {
             sum += abs(arr[i][j]);
         }
     }
-
-    // if odd negatives, subtract 2*minAbs
     if(negCount % 2 != 0)
         sum -= 2 * minAbs;
 
