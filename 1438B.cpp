@@ -1,16 +1,22 @@
 #include <iostream>
 #include<vector>
 #include<algorithm>
+#include<set>
 using namespace std;
 
 void solve() {
     int n; cin >> n;
-    vector<int> vec(n);
 
-    for(auto &ele : vec){
-        cin >> ele;
+    set<int> seen;
+    bool duplicate = false;
+
+    for(int i = 0; i < n; i++){
+        int x; cin >> x;
+        if(seen.count(x)) duplicate = true;
+        seen.insert(x);
     }
-    
+
+    cout << (duplicate ? "YES" : "NO") << "\n";   
     return;
 }
 
