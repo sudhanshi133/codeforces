@@ -7,30 +7,26 @@ void solve() {
     int n; 
     long long k;
     cin >> n >> k;
-
-    vector<pair<long long, int>> vec(n);  // {hits, original_index}
-    vector<long long> a(n);
-
+    
+    vector<pair<long long,int>> a(n);
+    
     for(int i = 0; i < n; i++){
-        cin >> a[i];
-        long long hits = (a[i] + k - 1) / k;
-        vec[i] = {hits, i + 1};
+        long long m; cin >> m;
+        long long b = m % k;
+        if(b==0)b=k;
+        a[i] = {b, i+1};
     }
 
-    sort(vec.begin(), vec.end(), [&](pair<long long,int> p, pair<long long,int> q){
-        if(p.first == q.first){
-            // same hits needed → larger original HP dies first
-            if(a[p.second-1] != a[q.second-1])
-                return a[p.second-1] > a[q.second-1];
-            // same HP → smaller index dies first
-            return p.second < q.second;
-        }
-        return p.first < q.first;
-    });
+    sort(a.begin(), a.end(), [](auto& x, auto& y){
+    if(x.first != y.first)
+        return x.first > y.first;
+    return x.second < y.second;
+});
 
     for(int i = 0; i < n; i++){
-        cout << vec[i].second << " ";
+        cout << a[i].second << " ";   
     }
+
     cout << "\n";
 }
 
