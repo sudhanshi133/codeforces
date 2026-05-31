@@ -1,20 +1,20 @@
 #include <iostream>
-#include<vector>
-#include<algorithm>
 using namespace std;
 
-void solve() {
+void solve(){
     int n; cin >> n;
-   for(int i =0; i<n; i++){
-    cout << i;
-    if(i!=n-1) cout << " ";
-   }
 
-cout << endl;
-    return;
+    int p = 1;
+    while(p * 2 <= n-1) p *= 2;
+    cout << p << " " << 0 << " ";
+
+    for(int i = 1; i < n; i++){
+        if(i != p) cout << i << " ";
+    }
+    cout << "\n";
 }
 
-int main() {
+int main(){
     int t; cin >> t;
-    while (t--) solve();
+    while(t--) solve();
 }
